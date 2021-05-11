@@ -1,0 +1,110 @@
+// @primary: #9C27B0;
+// @scondary:#9c27b07a; //#16a085c9;
+
+// .breadcrumb {
+//   list-style: none;
+//   display: inline-block;
+//   padding-left: 3px;
+//   font-size: 0.9em;
+//   margin-bottom: 5px !important;
+//   li {
+//     float: left;
+//     &:first-child {
+//       a {
+//         &:before {
+//           border: none;
+//         }
+//       }
+//     }
+//     &:last-child {
+//       a {
+//         &:after {
+//           border: none;
+//         }
+//       }
+//     }
+
+//     a {
+//       color: #fff;
+//       display: block;
+//       background: @scondary;
+//       cursor: default;
+//       text-decoration: none;
+//       position: relative;
+//       height: 40px;
+//       line-height: 40px;
+//       padding: 0 13px;
+//       text-align: center;
+//       margin-right: 23px;
+//       text-transform: capitalize;
+//       &:before,
+//       &:after {
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         border: 0 solid @scondary;
+//         border-width: 20px 10px;
+//         width: 0;
+//         height: 0;
+//       }
+//       &:before {
+//         left: -20px;
+//         border-left-color: transparent;
+//       }
+//       &:after {
+//         left: 100%;
+//         border-color: transparent;
+//         border-left-color: @scondary;
+//       }
+//       &.active {
+//         background-color: @primary;
+
+//         &:before {
+//           border-color: @primary;
+//           border-left-color: transparent;
+//         }
+//         &:after {
+//           border-left-color: @primary;
+//         }
+//       }
+//       &.complete {
+//         background-color: @primary;
+
+//         &:before {
+//           border-color: @primary;
+//           border-left-color: transparent;
+//         }
+//         &:after {
+//           border-left-color: @primary;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+.dynamic-delete-button {
+        cursor: pointer;
+        position: relative;
+        top: 4px;
+        font-size: 24px;
+        color: #999;
+        transition: all 0.3s;
+      }
+
+      .dynamic-delete-button:hover {
+        color: #777;
+      }
+
+      .passenger-input {
+        width: 60%;
+        margin-right: 8px;
+      }
+
+      [nz-form] {
+        max-width: 600px;
+      }
+
+      .add-button {
+        width: 60%;
+      }
