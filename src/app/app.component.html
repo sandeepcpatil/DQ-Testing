@@ -1,16 +1,8 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" *ngFor="let control of listOfControl;let i = index">
-  <!-- <nz-form-item>
-    <nz-form-label [nzXs]="24" [nzSm]="4" *ngIf="i == 0" [nzFor]="control.controlInstance">Passengers </nz-form-label>
-    <nz-form-control [nzXs]="24" [nzSm]="20" [nzOffset]="i == 0 ? 0 : 4"
-      nzErrorTip="Please input passenger's name or delete this field.">
-      <input class="passenger-input" nz-input placeholder="placeholder" [attr.id]="control.id"
-        [formControlName]="control.controlInstance" />
-    </nz-form-control>
-  </nz-form-item> -->
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired [nzFor]="control.sourceConnectionType"> Connection Type </nz-form-label>
-    <nz-form-control [nzSpan]="12" >
-      <nz-select [formControlName]="control.sourceConnectionType" [nzPlaceHolder]="'Select ' + 'Connection ' + 'type'" >
+    <nz-form-control [nzSpan]="12">
+      <nz-select [formControlName]="control.sourceConnectionType" [nzPlaceHolder]="'Select ' + 'Connection ' + 'type'">
         <nz-option *ngFor="let item of connectionsTypeList" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
@@ -20,7 +12,8 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.sourceConnectionName"> Connection Name </nz-form-label>
     <nz-form-control [nzSpan]="12">
-      <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Connection ' + 'Name'" [formControlName]="control.sourceConnectionName">
+      <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Connection ' + 'Name'"
+        [formControlName]="control.sourceConnectionName">
         <nz-option *ngFor="let item of connectionNameList" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
@@ -30,17 +23,19 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.sourceBucketName"> Bucket Name </nz-form-label>
     <nz-form-control [nzSpan]="12">
-      <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Bucket ' + 'Name'" [formControlName]="control.sourceBucketName">
+      <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Bucket ' + 'Name'"
+        [formControlName]="control.sourceBucketName">
         <nz-option *ngFor="let item of connectionBucketList" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
     </nz-form-control>
   </nz-form-item>
 
+
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired> File Type </nz-form-label>
     <nz-form-control [nzSpan]="12" [nzFormControl]="control.sourceFileType">
-      <nz-select  [nzPlaceHolder]="'Select ' + 'File' + 'type'" [formControlName]="control.sourceFileType">
+      <nz-select [nzPlaceHolder]="'Select ' + 'File' + 'type'" [formControlName]="control.sourceFileType">
         <nz-option *ngFor="let item of connectionFileList" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
@@ -65,7 +60,8 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="8" nzRequired [nzFor]="control.sourceFileSeparated"> Files Separated By </nz-form-label>
     <nz-form-control [nzSpan]="12" [nzFormControl]="control.sourceFileSeparated">
-      <nz-select [nzPlaceHolder]="'Select ' + 'Files' + 'Separated By'" [formControlName]="control.sourceFileSeparatedBy">
+      <nz-select [nzPlaceHolder]="'Select ' + 'Files' + 'Separated By'"
+        [formControlName]="control.sourceFileSeparatedBy">
         <nz-option *ngFor="let item of filesSeparatedBy" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
@@ -73,25 +69,138 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.firstRowHeader"> First Row is Header </nz-form-label>
-    <nz-form-control [nzSpan]="12" >
-      <nz-select  [nzPlaceHolder]="'Select ' + 'Files ' + 'Separated By'" [formControlName]="control.sourceFirstRowHeader">
+    <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.sourceFirstRowHeader"> First Row is Header </nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-select [nzPlaceHolder]="'Select ' + 'Files ' + 'Separated By'"
+        [formControlName]="control.sourceFirstRowHeader">
         <nz-option *ngFor="let item of headerTrue" [nzValue]="item.value" [nzLabel]="item.name">
         </nz-option>
       </nz-select>
     </nz-form-control>
   </nz-form-item>
+
+
+
+
+  <!-- Target details -->
+  <div class="target-system" *ngIf="radioValue === 'B'">
+    <h3>Target System</h3>
+    <!-- <form nz-form class="target-details" > -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [nzFor]="control.targetConnectionType"> Connection Type </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select [formControlName]="control.targetConnectionType"
+          [nzPlaceHolder]="'Select ' + 'Connection ' + 'type'">
+          <nz-option *ngFor="let item of connectionsTypeList" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.targetConnectionName"> Connection Name </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Connection ' + 'Name'"
+          [formControlName]="control.targetConnectionName">
+          <nz-option *ngFor="let item of connectionNameList" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.targetBucketName"> Bucket Name </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select name="select-validate" [nzPlaceHolder]="'Select ' + 'Bucket ' + 'Name'"
+          [formControlName]="control.targetBucketName">
+          <nz-option *ngFor="let item of connectionBucketList" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.targetFileType"> File Type </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select [nzPlaceHolder]="'Select ' + 'File' + 'type'" [formControlName]="control.targetFileType">
+          <nz-option *ngFor="let item of connectionFileList" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]='8' nzRequired [ngFor]="control.targetFileLocation">File Location</nz-form-label>
+      <span style="display: flex;">
+        <input nz-input placeholder="File Path" [formControlName]="control.targetFileLocation">
+
+        <img src="../../../assets/Images/folder.png" style="width: 30px; padding-left: 5px;" (click)="showModal()">
+      </span>
+
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <ng-container *nzModalContent>
+          <app-tree-view></app-tree-view>
+        </ng-container>
+      </nz-modal>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [nzFor]="control.targetFileSeparatedBy"> Files Separated By </nz-form-label>
+      <nz-form-control [nzSpan]="12" >
+        <nz-select [nzPlaceHolder]="'Select ' + 'Files' + 'Separated By'"
+          [formControlName]="control.targetFileSeparatedBy">
+          <nz-option *ngFor="let item of filesSeparatedBy" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="8" nzRequired [ngFor]="control.targetFirstRowHeader"> First Row is Header
+      </nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select [nzPlaceHolder]="'Select ' + 'Files ' + 'Separated By'"
+          [formControlName]="control.targetFirstRowHeader">
+          <nz-option *ngFor="let item of headerTrue" [nzValue]="item.value" [nzLabel]="item.name">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- </form> -->
+  </div>
+
+
+
   <nz-form-item>
     <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
       <button nz-button nzType="dashed" class="add-button" (click)="addField($event)">
-        <i nz-icon nzType="plus"></i>
-        Add field
+        <!-- <i nz-icon nzType="plus"></i> -->
+        Add another  object
       </button>
     </nz-form-control>
   </nz-form-item>
+
+
+
   <nz-form-item>
     <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
       <button nz-button nzType="primary">Submit</button>
     </nz-form-control>
   </nz-form-item>
 </form>
+
+
+<div style="display: flex; justify-content: center;">
+  <h3 style="padding-right: 10px
+  ;">Select the Validation Type:</h3>
+  <nz-radio-group [(ngModel)]="radioValue">
+    <label nz-radio nzValue="A">Single File Validation</label>
+    <label nz-radio nzValue="B">Source Target Comparison</label>
+  </nz-radio-group>
+</div>
+
+<app-table>
+
+</app-table>

@@ -13,7 +13,9 @@ export class AppComponent {
   public radioValue=" "
 
   validateForm!: FormGroup;
-  listOfControl: Array<{ id: number; controlInstance: string ; sourceConnectionType: string; sourceConnectionName: string; sourceBucketName: string; sourceFileType: string;sourceFileLocation: string; sourceFileSeparatedBy: string; sourceFirstRowHeader: string}> = [];
+  listOfControl: Array<{ id: number; controlInstance: string ; sourceConnectionType: string; sourceConnectionName: string; sourceBucketName: string; sourceFileType: string;sourceFileLocation: string; sourceFileSeparatedBy: string; sourceFirstRowHeader: string
+targetConnectionType: string; targetConnectionName: string; targetBucketName: string; targetFileType: string; targetFileLocation: string; targetFileSeparatedBy: string; targetFirstRowHeader: string
+  }> = [];
 
   constructor(private fb: FormBuilder) {}
 
@@ -30,18 +32,31 @@ export class AppComponent {
 
     const control = {
       id,
-      controlInstance: `passenger${id}`,
-      sourceConnectionType: `connectionType${id}`,
-      sourceConnectionName: `connectionName${id}`,
-      sourceBucketName: `bucketName${id}`,
-      sourceFileType: `fileType${id}`,
-      sourceFileLocation: `location${id}`,
-      sourceFileSeparatedBy:`separatedBy${id}`,
-      sourceFirstRowHeader: `header${id}`,
+      controlInstance: `passenger ${id}`,
+      sourceConnectionType: `sourceConnectionType ${id}`,
+      sourceConnectionName: `sourceConnectionName ${id}`,
+      sourceBucketName: `sourceBucketName ${id}`,
+      sourceFileType: `sourceFileType ${id}`,
+      sourceFileLocation: `sourceLocation ${id}`,
+      sourceFileSeparatedBy:`sourceSeparatedBy ${id}`,
+      sourceFirstRowHeader: `sourceHeader ${id}`,
+
+
+
+      targetConnectionType: `targetConnectionType ${id}`,
+      targetConnectionName: `targetConnectionName ${id}`,
+      targetBucketName: `targetBucketName ${id}`,
+      targetFileType: `targetFileType ${id}`,
+      targetFileLocation: `targetLocation ${id}`,
+      targetFileSeparatedBy:`targetSeparatedBy ${id}`,
+      targetFirstRowHeader: `targetHeader ${id}`,
     };
     const index = this.listOfControl.push(control);
     // console.log(this.listOfControl[this.listOfControl.length]);
     // this.validateForm.addControl(this.listOfControl[index - 1].controlInstance, new FormControl(null, Validators.required));
+
+
+    //Source System
     this.validateForm.addControl(this.listOfControl[index - 1].sourceConnectionType, new FormControl(null, Validators.required));
     this.validateForm.addControl(this.listOfControl[index - 1].sourceConnectionName, new FormControl(null, Validators.required));
     this.validateForm.addControl(this.listOfControl[index - 1].sourceBucketName, new FormControl(null, Validators.required));
@@ -50,17 +65,19 @@ export class AppComponent {
     this.validateForm.addControl(this.listOfControl[index - 1].sourceFileSeparatedBy, new FormControl(null, Validators.required));
     this.validateForm.addControl(this.listOfControl[index - 1].sourceFirstRowHeader, new FormControl(null, Validators.required));
 
+
+
+    // Target System
+    this.validateForm.addControl(this.listOfControl[index - 1].targetConnectionType, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetConnectionName, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetBucketName, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetFileType, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetFileLocation, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetFileSeparatedBy, new FormControl(null, Validators.required));
+    this.validateForm.addControl(this.listOfControl[index - 1].targetFirstRowHeader, new FormControl(null, Validators.required));
+
   }
 
-  // removeField(i: { id: number; controlInstance: string }, e: MouseEvent): void {
-  //   e.preventDefault();
-  //   if (this.listOfControl.length > 1) {
-  //     const index = this.listOfControl.indexOf(i);
-  //     this.listOfControl.splice(index, 1);
-  //     console.log(this.listOfControl);
-  //     this.validateForm.removeControl(i.controlInstance);
-  //   }
-  // }
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
